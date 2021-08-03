@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     # My apps
     'blog.apps.BlogConfig',
     'api.apps.ApiConfig',
+    # Install Packages
+    'graphene_django',
 ]
 
 MIDDLEWARE = [

@@ -3,11 +3,14 @@ from blog.admin import blog_admin_site
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from graphene_django.views import GraphQLView
+from .schema import schema
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog-admin/', blog_admin_site.urls),
-    path('api/', include('api.urls', namespace='api')),
+    path('api/graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     path('', include('blog.urls', namespace='blog')),
 ]
 
