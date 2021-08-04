@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog-admin/', blog_admin_site.urls),
     path('api/graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+    path('api/rest/', include('api.rest.urls')),
     path('', include('blog.urls', namespace='blog')),
 ]
 

@@ -29,6 +29,9 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     # Install Packages
     'graphene_django',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
