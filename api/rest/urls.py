@@ -9,6 +9,7 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register('post', views.PostModelViewSet)
+router.register('user', views.UserCreateAPIView)
 
 urlpatterns = [
     path('', include(router.urls))
