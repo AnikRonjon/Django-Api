@@ -1,16 +1,13 @@
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 
 # Create your views here.
-class HomeView(TemplateView):
+class HomeView(ListView):
+    model = Post
     template_name = 'blog/post_list.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(status='published')
-        return context
+    context_object_name = 'posts'
 
 
 def post_detail_view(request, year, month, day, post):
@@ -20,3 +17,8 @@ def post_detail_view(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'blog/post.html'
