@@ -21,4 +21,5 @@ def post_detail_view(request, year, month, day, post):
 
 class PostDetailView(DetailView):
     model = Post
-    template_name = 'blog/post.html'
+    template_name = 'blog/post_detail.html'
+
