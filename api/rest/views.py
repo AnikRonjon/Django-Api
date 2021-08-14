@@ -4,6 +4,7 @@ from rest_framework.permissions import DjangoModelPermissions, IsAdminUser
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from blog.models import Post, User
 from .serializers import PostSerializer, UserSerializer
+from .pagination import MyPagination
 
 
 class PostModelViewSet(ModelViewSet):
@@ -11,6 +12,7 @@ class PostModelViewSet(ModelViewSet):
     serializer_class = PostSerializer
     # permission_class = [IsAdminUser, DjangoModelPermissions]
     # authentication_classes = [JWTAuthentication]
+    pagination_class = MyPagination
 
 
 class UserCreateAPIView(ModelViewSet):
