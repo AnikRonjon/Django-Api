@@ -5,7 +5,7 @@ from .serializer import CategorySerializer, PostSerializer
 
 
 # Create your views here.
-@api_view()
+@api_view(['GET'])
 def posts_view(request):
     posts = Post.objects.all()
     serialize = PostSerializer(posts, many=True)
